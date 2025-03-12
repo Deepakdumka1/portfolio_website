@@ -1,0 +1,473 @@
+.contact-container {
+  min-height: 100vh;
+  padding: 80px 2rem;
+  background-color: var(--background-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Particle Background */
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Grid Layout */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Contact Info Card */
+.contact-info {
+  position: relative;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  height: 100%;
+}
+
+.card-header {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.card-header h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.card-decoration {
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-right: 1rem;
+}
+
+.info-content h4 {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.info-content p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--accent-color);
+  color: var(--background-color);
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  bottom: 120%;
+}
+
+/* Typewriter Effect */
+.typewriter-container {
+  height: 2rem;
+  margin: 1rem 0;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* Form Enhancements */
+.contact-form {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  opacity: 0.5;
+}
+
+.input-container input,
+.input-container textarea {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-container textarea {
+  min-height: 150px;
+  resize: vertical;
+  padding-top: 1rem;
+}
+
+.input-container input:focus,
+.input-container textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Submit Button States */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  color: var(--background-color);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn.sending {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.submit-btn.success {
+  background: #4CAF50;
+}
+
+.submit-btn.error {
+  background: #f44336;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Notification */
+.notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  z-index: 1000;
+}
+
+.notification.success {
+  background: #4CAF50;
+}
+
+.notification.error {
+  background: #f44336;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact-container {
+    padding: 60px 1rem;
+  }
+
+  .contact-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .contact-form,
+  .info-card {
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .social-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .info-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-icon {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.contact-container {
+  min-height: 100vh;
+  padding: 80px 2rem;
+  background-color: var(--background-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Effects */
+.contact-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.gradient-blur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(var(--accent-color-rgb), 0.1) 0%,
+    rgba(var(--background-color-rgb), 0.2) 50%,
+    rgba(var(--background-color-rgb), 0.8) 100%
+  );
+  backdrop-filter: blur(100px);
+}
+
+.floating-shape {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, 
+    rgba(var(--accent-color-rgb), 0.1),
+    rgba(var(--secondary-color-rgb), 0.1)
+  );
+  border-radius: 30px;
+  filter: blur(5px);
+}
+
+/* Content Styles */
+.contact-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contact-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Your existing styles remain the same from here... */
+
+/* Add these missing styles */
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+.social-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.social-icon:hover {
+  color: white !important; /* Ensure icon color is white on hover */
+}
+/* Animation Keyframes */
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, 20px) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* Apply floating animation to shapes */
+.floating-shape:nth-child(1) { animation: float 20s infinite ease-in-out; }
+.floating-shape:nth-child(2) { animation: float 25s infinite ease-in-out reverse; }
+.floating-shape:nth-child(3) { animation: float 30s infinite ease-in-out; }
+.floating-shape:nth-child(4) { animation: float 35s infinite ease-in-out reverse; }
+.floating-shape:nth-child(5) { animation: float 40s infinite ease-in-out; }
+
+/* Position floating shapes */
+.floating-shape:nth-child(1) { top: 10%; left: 10%; }
+.floating-shape:nth-child(2) { top: 60%; left: 80%; }
+.floating-shape:nth-child(3) { top: 30%; left: 50%; }
+.floating-shape:nth-child(4) { top: 70%; left: 20%; }
+.floating-shape:nth-child(5) { top: 40%; left: 90%; }
+
+/* Enhance form focus effects */
+.input-focus-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+  transition: width 0.3s ease;
+}
+
+.input-container input:focus ~ .input-focus-effect,
+.input-container textarea:focus ~ .input-focus-effect {
+  width: 100%;
+}
+
+/* Add hover effect to form inputs */
+.input-container input:hover,
+.input-container textarea:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Enhance button hover effect */
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(var(--accent-color-rgb), 0.3);
+}
+
+/* Add transition to notification */
+.notification {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Rest of your existing styles remain the same... */
