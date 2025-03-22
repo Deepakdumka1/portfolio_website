@@ -16,9 +16,9 @@ import emailjs from "@emailjs/browser";
 import "../styles/Contact.css";
 
 // Replace these with your EmailJS credentials
-const EMAIL_SERVICE_ID = "service_voevtsu";
-const EMAIL_TEMPLATE_ID = "template_mko155d";
-const EMAIL_PUBLIC_KEY = "9A7CGzs73dH2iWjZ4";
+const EMAIL_SERVICE_ID = "service_vz698ta";
+const EMAIL_TEMPLATE_ID = "template_vqz5xeu";
+const EMAIL_PUBLIC_KEY = "_uKUaXWuam_VXBdQK";
 
 const Contact = () => {
   const form = useRef();
