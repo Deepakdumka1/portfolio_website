@@ -11,13 +11,35 @@ import {
   FaDatabase,
   FaCode
 } from 'react-icons/fa';
-import { SiFramer, SiOpenai, SiMongodb, SiFlask } from 'react-icons/si';
+import { SiFramer, SiOpenai, SiMongodb, SiFlask, SiPostman } from 'react-icons/si';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState('all');
 
   const projects = [
+    {
+      title: "Postman Clone",
+      description: "A functional clone of Postman API testing tool built with React, featuring request handling and response visualization.",
+      longDescription: "This Postman Clone project is a web-based API testing tool that mimics the core functionality of Postman. It allows users to send HTTP requests, view responses, and test APIs with an intuitive interface. The application supports various HTTP methods, custom headers, and request body configurations, making it a useful tool for API development and testing.",
+      image: "/projects/postman.webp",
+      technologies: ["React", "JavaScript", "CSS3", "API Integration"],
+      category: "web",
+      github: "https://github.com/Deepakdumka1/Postman-Clone.git",
+      demo: "https://postman-clone-kyhe.vercel.app/",
+      features: [
+        "Multiple HTTP Methods Support",
+        "Custom Headers Configuration",
+        "Request Body Builder",
+        "Response Visualization",
+        "Request History",
+        "User-friendly Interface"
+      ],
+      icons: {
+        main: FaReact,
+        secondary: SiPostman
+      }
+    },
     {
       title: "Portfolio Website",
       description: "A modern portfolio website built with React and Framer Motion, featuring smooth animations and interactive elements.",
@@ -26,7 +48,7 @@ const Projects = () => {
       technologies: ["React", "Framer Motion", "CSS3"],
       category: "web",
       github: "https://github.com/Deepakdumka1/Deepakdumka1?tab=repositories",
-      demo: "https://deepakdumka.com",
+      demo: "https://portfolio-website-deepak-dumka.vercel.app/",
       features: [
         "Responsive Design for all devices",
         "Smooth Page Transitions",
