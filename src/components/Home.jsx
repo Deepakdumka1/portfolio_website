@@ -1,6 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown } from "react-icons/fa";
+import { 
+  FaGithub, 
+  FaLinkedin, 
+  FaEnvelope, 
+  FaArrowDown, 
+  FaBriefcase, 
+  FaExternalLinkAlt, 
+  FaCode, 
+  FaReact, 
+  FaNodeJs 
+} from "react-icons/fa";
+import { MdOutlineWavingHand } from "react-icons/md";
 import "../styles/Home.css";
 import { useNavigate } from "react-router-dom";
 const Home = () => {
@@ -11,6 +22,8 @@ const Home = () => {
   const typingSpeed = 100;
   const cursorRef = useRef(null);
   const controls = useAnimation();
+
+  // Removed 3D effect code for status card
 
   useEffect(() => {
     let timeouts = [];
@@ -40,7 +53,7 @@ const Home = () => {
     };
   }, []);
 
-  // Rest of your component remains the same
+  // Removed card 3D effect handlers
   return (
     <div className="home-container">
       {/* Animated particle background */}
@@ -135,6 +148,132 @@ const Home = () => {
             </motion.p>
           </div>
         </div>
+        <div className="status-greeting">
+            <motion.div 
+              className="greeting-icon"
+              animate={{ rotate: [0, 15, 0, 15, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 2 }}
+            >
+              <MdOutlineWavingHand />
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 3 }}
+            >
+              Feel free to <span className="highlight-text">reach out</span> for collaborations or projects!
+            </motion.p>
+          </div>
+        {/* Enhanced Futuristic Status Section */}
+        <motion.div 
+          className="status-section"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.5 }}
+        >
+          <motion.div 
+            className="status-card-wrapper"
+          >
+            <motion.div 
+              className="status-card futuristic"
+              whileHover={{
+                scale: 1.02
+              }}
+            >
+              <div className="card-glow"></div>
+              <div className="card-glass"></div>
+              
+              <div className="status-badge">
+                <div className="status-indicator pulse"></div>
+                <motion.span
+                  animate={{ opacity: [0.5, 1, 0.5] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                >
+                  Currently Active
+                </motion.span>
+              </div>
+              
+              <div className="status-content">
+                <div className="status-icon-container">
+                  <div className="status-icon-outer">
+                    <div className="status-icon-ring"></div>
+                    <motion.div 
+                      className="status-icon"
+                      animate={{ 
+                        rotateZ: [0, 360] 
+                      }}
+                      transition={{ 
+                        duration: 20, 
+                        repeat: Infinity, 
+                        ease: "linear" 
+                      }}
+                    >
+                      <FaBriefcase />
+                    </motion.div>
+                  </div>
+                </div>
+                
+                <div className="status-info">
+                  <div className="status-header">
+                    <h3>
+                      <span className="highlight-text">Web Developer</span> at
+                    </h3>
+                    <div className="company-details">
+                      <motion.div className="company-name-wrapper">
+                        <h2 className="company-name">RettRose</h2>
+                        <div className="company-name-decoration"></div>
+                      </motion.div>
+                      
+                      <motion.a 
+                        href="https://rettrose.in/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="company-link"
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(97, 218, 251, 0.5)" }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <span>Visit</span> <FaExternalLinkAlt />
+                      </motion.a>
+                    </div>
+                    
+                    <div className="status-description">
+                      <p>Creating innovative web solutions with cutting-edge technologies</p>
+                      
+                      <div className="status-tech-icons">
+                        {[
+                          { icon: FaReact, label: "Shopify", className: "shopify-icon" },
+                          // { icon: FaNodeJs, label: "Node.js" },
+                          // { icon: FaCode, label: "Frontend" }
+                        ].map((tech, index) => (
+                          <motion.div 
+                            key={index} 
+                            className="tech-icon-wrapper"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 3 + (index * 0.1) }}
+                          >
+                            <div className={`tech-icon-bg ${tech.className || ""}`}>
+                              <tech.icon className="tech-icon" />
+                            </div>
+                            <span className="tech-label">{tech.label}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="status-decoration top-left"></div>
+              <div className="status-decoration top-right"></div>
+              <div className="status-decoration bottom-left"></div>
+              <div className="status-decoration bottom-right"></div>
+              <div className="circuit-lines"></div>
+            </motion.div>
+          </motion.div>
+          
+          
+        </motion.div>
 
         <motion.div
           className="cta-section"
